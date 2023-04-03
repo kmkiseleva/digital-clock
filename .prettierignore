@@ -1,0 +1,17 @@
+android
+ios
+node_modules
+__tests__
+
+tsconfig.json
+yarn.lock
+.eslintrc.json
+.prettierrc.js
+.watchmanconfig
+babel.config.js
+
+/src/styles
+
+*.css
+*.scss
+*.sass
