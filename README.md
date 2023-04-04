@@ -28,7 +28,6 @@ This will install the required dependencies and start the development server.
 
 
 ![Desktop](/src/assets/desktop.png)
-![Tablet](/src/assets/tablet.png)
 ![Mobile](/src/assets/mobile.png)
 
 # Credits
