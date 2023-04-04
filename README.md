@@ -32,7 +32,7 @@ This will install the required dependencies and start the development server.
 ![Mobile](/src/assets/mobile.png)
 
 # Credits
-The project was built by Ksenia Kiseleva using the following resources:
+The project was built by **Ksenia Kiseleva** using the following resources:
 
 - React
 - TypeScript

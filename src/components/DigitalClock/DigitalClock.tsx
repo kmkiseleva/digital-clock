@@ -21,7 +21,7 @@ const DigitalDial: React.FC = () => {
 
   const hourDegree = hours * 30 + minutes / 2 + 90;
   const minuteDegree = minutes * 6 + 90;
-  const secondDegree = seconds * 6;
+  const secondDegree = seconds * 6 + 90;
 
   const handleDayClick = () => {
     setIsDay(true);
