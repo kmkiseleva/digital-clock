@@ -1,8 +1,10 @@
+// Core
 import React, { useState, useEffect } from 'react';
-import { FaClock } from 'react-icons/fa';
+
+// Styles
 import './DigitalClock.css';
 
-const DigitalClock: React.FC = () => {
+const DigitalDial: React.FC = () => {
   const [time, setTime] = useState<Date>(new Date());
   const [isDay, setIsDay] = useState<boolean>(false);
 
@@ -13,9 +15,13 @@ const DigitalClock: React.FC = () => {
     return () => clearInterval(intervalId);
   }, []);
 
-  const hours = time.getHours().toString().padStart(2, '0');
-  const minutes = time.getMinutes().toString().padStart(2, '0');
-  const seconds = time.getSeconds().toString().padStart(2, '0');
+  const hours = time.getHours();
+  const minutes = time.getMinutes();
+  const seconds = time.getSeconds();
+
+  const hourDegree = hours * 30 + minutes / 2 + 90;
+  const minuteDegree = minutes * 6 + 90;
+  const secondDegree = seconds * 6;
 
   const handleDayClick = () => {
     setIsDay(true);
@@ -27,9 +33,33 @@ const DigitalClock: React.FC = () => {
 
   return (
     <div className={`digital-clock ${isDay ? 'day-theme' : 'night-theme'}`}>
-      <FaClock className="clock-icon" />
+      <div className="clock">
+        <div className="clock-face">
+          {Array(12)
+            .fill('')
+            .map((stroke, index) => (
+              <span
+                className="clock__stroke"
+                style={{ transform: `rotate(${index * 30}deg)` }}
+              ></span>
+            ))}
+
+          <div
+            className="hand hour-hand"
+            style={{ transform: `rotate(${hourDegree}deg)` }}
+          />
+          <div
+            className="hand minute-hand"
+            style={{ transform: `rotate(${minuteDegree}deg)` }}
+          />
+          <div
+            className="hand second-hand"
+            style={{ transform: `rotate(${secondDegree}deg)` }}
+          />
+        </div>
+      </div>
       <span className="time">
-        {hours}:{minutes}:{seconds}
+        {hours}:{minutes.toString().padStart(2, '0')}:{seconds.toString().padStart(2, '0')}
       </span>
       <div className="theme-switchers">
         <button
@@ -49,4 +79,4 @@ const DigitalClock: React.FC = () => {
   );
 };
 
-export default DigitalClock;
+export default DigitalDial;

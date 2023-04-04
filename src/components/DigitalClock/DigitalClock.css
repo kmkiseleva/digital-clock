@@ -37,13 +37,82 @@
   background-color: rgba(255, 255, 255, 0.2);
 }
 
+.clock {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.clock-face {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 160px;
+  height: 160px;
+  margin: -80px 0 0 -80px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.hand {
+  position: absolute;
+  top: 50%;
+  transform-origin: 100%;
+  width: 50%;
+  height: 3px;
+  background-color: #333;
+}
+
+.hour-hand {
+  z-index: 3;
+  transform: rotate(0deg);
+}
+
+.minute-hand {
+  z-index: 2;
+  transform: rotate(0deg);
+  background-color: blue;
+}
+
+.second-hand {
+  z-index: 1;
+  transform: rotate(0deg);
+  background-color: #f00;
+}
+
+.clock__stroke {
+  margin-left: -0.9em;
+  margin-top: -0.9em;
+  font-size: inherit;
+  position: absolute;
+  display: block;
+  height: 1.8em;
+  width: 1.8em;
+  left: 50%;
+  top: 50%;
+}
+
+.clock__stroke::after {
+  content: "";
+  border-radius: 0 0 0.02em 0.02em;
+  background-color: #000;
+  margin-left: -0.01em;
+  position: absolute;
+  display: block;
+  height: 0.05em;
+  width: 0.02em;
+  top: 0.02em;
+  left: 50%;
+}
+
 @media screen and (max-width: 768px) {
   .digital-clock {
     flex-wrap: wrap;
     padding: 16px;
   }
 
-  .clock-icon,
+  .clock,
   .time,
   .theme-switchers {
     margin: 0 auto;
