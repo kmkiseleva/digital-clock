@@ -35,14 +35,12 @@ const DigitalDial: React.FC = () => {
     <div className={`digital-clock ${isDay ? 'day-theme' : 'night-theme'}`}>
       <div className="clock">
         <div className="clock-face">
-          {Array(12)
-            .fill('')
-            .map((stroke, index) => (
-              <span
-                className="clock__stroke"
-                style={{ transform: `rotate(${index * 30}deg)` }}
-              ></span>
-            ))}
+          {Array.from({ length: 12 }).map((_, index) => (
+            <span
+              className="clock__stroke"
+              style={{ transform: `rotate(${index * 30}deg)` }}
+            ></span>
+          ))}
 
           <div
             className="hand hour-hand"
